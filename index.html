@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Probabilitas Binomial Lengkap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+<div class="wrapper">
+    <div class="container">
+        <h2>Kalkulator Probabilitas Binomial</h2>
+
+        <label>Jumlah percobaan (n):</label>
+        <input type="number" id="n" value="10">
+
+        <label>Probabilitas sukses (p):</label>
+        <input type="number" step="0.01" id="p" value="0.5">
+
+        <label>Pilih jenis perhitungan:</label>
+        <select id="mode" onchange="updateFields()">
+            <option value="exact">P(X = k)</option>
+            <option value="cumulative_leq">P(X ≤ k)</option>
+            <option value="cumulative_geq">P(X ≥ k)</option>
+            <option value="less_than">P(X < k)</option>
+            <option value="greater_than">P(X > k)</option>
+            <option value="range">P(a ≤ X ≤ b)</option>
+        </select>
+
+        <div id="kInput">
+            <label>k:</label>
+            <input type="number" id="k" value="3">
+        </div>
+
+        <div id="rangeInput" style="display:none;">
+            <label>a (batas bawah):</label>
+            <input type="number" id="a" value="3">
+            <label>b (batas atas):</label>
+            <input type="number" id="b" value="6">
+        </div>
+
+        <button onclick="hitung()">Hitung</button>
+
+        <div id="output"></div>
+    </div>
+
+    <div class="container" style="margin-top: 40px;">
+        <h2>Cara Menggunakan Kalkulator</h2>
+        <ol>
+            <li><strong>Masukkan nilai n</strong>: Jumlah total percobaan atau uji coba (contoh: 10).</li>
+            <li><strong>Masukkan nilai p</strong>: Probabilitas (peluang) sukses dalam satu percobaan (contoh: 0.5 untuk 50%).</li>
+            <li><strong>Pilih jenis perhitungan</strong> pada dropdown:
+                <ul>
+                    <li><strong>P(X = k)</strong>: Peluang tepat k keberhasilan.</li>
+                    <li><strong>P(X ≤ k)</strong>: Peluang k atau kurang keberhasilan (kumulatif dari 0 sampai k).</li>
+                    <li><strong>P(X ≥ k)</strong>: Peluang k atau lebih keberhasilan.</li>
+                    <li><strong>P(X &lt; k)</strong>: Peluang kurang dari k keberhasilan.</li>
+                    <li><strong>P(X &gt; k)</strong>: Peluang lebih dari k keberhasilan.</li>
+                    <li><strong>P(a ≤ X ≤ b)</strong>: Peluang antara a dan b keberhasilan (termasuk keduanya).</li>
+                </ul>
+            </li>
+            <li><strong>Isi nilai k</strong> (atau a dan b jika memilih mode rentang).</li>
+            <li><strong>Klik tombol "Hitung"</strong> untuk melihat hasilnya di bawah tombol.</li>
+        </ol>
+        <p><strong>Contoh:</strong> Jika Anda ingin menghitung peluang mendapatkan 3 sampai 6 sukses dari 10 percobaan dengan p = 0.5, pilih “P(a ≤ X ≤ b)”, masukkan a = 3 dan b = 6, lalu klik "Hitung".</p>
+    </div>
+</div>
+
+<footer class="site-footer">
+    <p>made by <img src="img/porto.png" width="250px" alt="Logo"></p>
+</footer>
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
